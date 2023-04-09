@@ -1,0 +1,27 @@
+Debug:
+  # True or False
+  # description: 可视化棋盘格点云
+  visualize_raw_chessboard_pointcloud: False
+  # description: 可视化RANSAC平面拟合后点云
+  visualize_plane_fitting_result: False
+  # description: 可视化经过投影后的点云
+  visualize_proj_chessboard_pointcloud: False
+  # description: 可视化强度阈值
+  visualize_intensity_threshold: True
+  # description: 可视化二值化的点云
+  visualize_binary_chessboard_pointcloud: False
+  # description: 可视化PCA后的点云
+  visualize_pca_pointcloud: False
+  # description: 可视化2D棋盘格角点
+  visualize_2D_corners: False
+  # description: 可视化3D棋盘格角点 + 棋盘格
+  visualize_3D_corners_in_lidar_frame: False
+  visualized_ideal_model_chessboard_corners: False
+  visualize_contour: False
+
+DeveloperParam:
+  # description: 0: "ITERATIVE", 1: "EPNP", 8: "SQPNP"]
+  # 使用多种方法时触发：那个重投影误差最小就用哪个
+  pnp_method: ["SQPNP"]
+  # description: "RCLC", "ACSC", "KDE", "ACSC+KDE"
+  binarization_methods: ["KDE"]

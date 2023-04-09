@@ -1,0 +1,36 @@
+LiDARParam:
+  # description: the parameter refer to Livox LiDAR official user manual
+  # choose Horizon or Mid40 or Mid70 or other
+  Horizon:
+    horizon_offset: -41.0
+    vertical_offset: -14.2
+    horizon_fov: 81.7
+    vertical_fov: 28.0
+    angle_resolution: 0.05
+    h_angle_resolution: 0.05
+    v_angle_resolution: 0.05
+  Mid40:
+    horizon_offset: -20.0
+    vertical_offset: -20.0
+    horizon_fov: 40.0
+    vertical_fov: 40.0
+    angle_resolution: 0.10
+    h_angle_resolution: 0.10
+    v_angle_resolution: 0.10
+  Mid70:
+    horizon_offset: -35.2
+    vertical_offset: -35.2
+    horizon_fov: 70.4
+    vertical_fov: 70.4
+    angle_resolution: 0.1
+    h_angle_resolution: 0.10
+    v_angle_resolution: 0.10
+  Avia:
+    horizon_offset: -35.2
+    vertical_offset: -38.6
+    horizon_fov: 70.4
+    vertical_fov: 77.2
+    angle_resolution: 0.05
+    h_angle_resolution: 0.05
+    v_angle_resolution: 0.05
+
