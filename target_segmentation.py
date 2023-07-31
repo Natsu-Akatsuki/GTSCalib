@@ -361,7 +361,7 @@ def simple_demo(pc_file, config_file):
 if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG, format='[%(levelname)s] %(message)s')
     parser = argparse.ArgumentParser()
-    parser.add_argument('--idx', nargs='+', type=int, default=[0])
+    parser.add_argument('--idx', nargs='+', type=int, default=[2])
     parser.add_argument('--cfg', type=str, default="config/horizon.yaml")
     args = parser.parse_args()
     cfg = args.cfg

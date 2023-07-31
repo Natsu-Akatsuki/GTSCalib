@@ -2,19 +2,19 @@ Debug:
   # True or False
   # description: 可视化棋盘格点云
   visualize_raw_chessboard_pointcloud: False
-  # description: 可视化RANSAC平面拟合后点云
+  # description: 可视化 RANSAC 平面拟合后点云
   visualize_plane_fitting_result: False
   # description: 可视化经过投影后的点云
   visualize_proj_chessboard_pointcloud: False
   # description: 可视化强度阈值
-  visualize_intensity_threshold: True
+  visualize_intensity_threshold: False
   # description: 可视化二值化的点云
   visualize_binary_chessboard_pointcloud: False
-  # description: 可视化PCA后的点云
+  # description: 可视化 PCA 后的点云
   visualize_pca_pointcloud: False
-  # description: 可视化2D棋盘格角点
+  # description: 可视化 2D 棋盘格角点
   visualize_2D_corners: False
-  # description: 可视化3D棋盘格角点 + 棋盘格
+  # description: 可视化 3D 棋盘格角点 + 棋盘格
   visualize_3D_corners_in_lidar_frame: False
   visualized_ideal_model_chessboard_corners: False
   visualize_contour: False

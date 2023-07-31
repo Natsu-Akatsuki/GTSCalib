@@ -309,7 +309,7 @@ class CalibrationNode(Config):
                                                                         rot_3d, trans_3d)
 
         if self.vis_3D_corners_in_lidar_frame:
-            # 将corner还原到原始点云对应的3D空间
+            # 将 corner 还原到原始点云对应的 3D 空间
             pc_in_lidar_frame = (pc_in_chessboard_frame[:, :3] + trans_3d) @ rot_3d
 
             # 测试棋盘格角点的间隔
@@ -468,10 +468,10 @@ if __name__ == '__main__':
     sample_idx_list_for_extraction = None
     calibration_node.extract_correspondences(idx=sample_idx_list_for_extraction)
 
-    estimate_sample_idx_list = None
-    evaluate_sample_idx_list = None
-    data = calibration_node.load_corners_from_file()
-    if len(data['corners_in_lidar']) == 0:
-        logging.error("No corners data, please extract corners first")
-        exit(1)
-    extri_mat = calibration_node.estimate(data, estimate_sample_idx_list=estimate_sample_idx_list, do_save=True)
+    # estimate_sample_idx_list = None
+    # evaluate_sample_idx_list = None
+    # data = calibration_node.load_corners_from_file()
+    # if len(data['corners_in_lidar']) == 0:
+    #     logging.error("No corners data, please extract corners first")
+    #     exit(1)
+    # extri_mat = calibration_node.estimate(data, estimate_sample_idx_list=estimate_sample_idx_list, do_save=True)

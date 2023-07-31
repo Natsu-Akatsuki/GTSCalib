@@ -10,7 +10,7 @@ import open3d as o3d
 import pandas
 import yaml
 from ampcl import filter
-from ampcl.calibration import Calibration
+from ampcl.calibration import calibration
 from ampcl.io import pointcloud_io
 from colorama import Fore, Style
 from easydict import EasyDict
@@ -20,7 +20,7 @@ from common import load_pointcloud_img_file_pair
 from ampcl import calibration
 
 
-class Experiment(Calibration):
+class Experiment():
     def __init__(self, config_file=None, calib_file=None):
 
         if config_file is not None:
@@ -117,7 +117,7 @@ class Experiment(Calibration):
         # colors[1] = [0, 255, 0]
         colors[...] = colors[:, ::-1]  # RGB to BGR
 
-        # 可视化2D的投影点云（蓝色）
+        # 可视化 2D 的投影点云（蓝色）
         for (x, y), c in zip(pts_img, colors):
             x, y = np.int_(x), np.int_(y)
             # 图片，圆心位置位置，圆半径，圆颜色，边界厚度（-1：填充）
@@ -174,7 +174,7 @@ class Experiment(Calibration):
             distance_chessboard_to_lidar = np.mean(
                 np.linalg.norm(corners_in_lidar[:, :3], axis=1, ord=2).astype(np.float32))
 
-            # 单帧图片的MSE和RMSE
+            # 单帧图片的 MSE 和 RMSE
             mse = np.mean(l2_error ** 2)
             mse_per_placement_list.append(mse)
             rmse = np.sqrt(mse)
@@ -243,7 +243,7 @@ def cli():
                         help='whether to perform qualitative experiment')
     parser.add_argument('--do_quan', action='store_true', default=True,
                         help='whether to perform quantitative experiment')
-    parser.add_argument('--idx', nargs='+', type=int, default=[0],
+    parser.add_argument('--idx', nargs='+', type=int, default=[3],
                         help='specify the n-th pairs for quantitative experiment')
     args = parser.parse_args()
 

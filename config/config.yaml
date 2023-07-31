@@ -1,5 +1,5 @@
 Dataset:
-  DataDir: "data/mid70"
+  DataDir: "data/04-09-12-19-29"
 
 ChessboardParam:
   # description: number of corner along the left side of chessboard in pixel coordinate (not the number of grid)
@@ -12,7 +12,8 @@ ChessboardParam:
   CornerColor: "black"
 
 SensorParam:
-  LiDAR: Mid70
+  # description: choose Horizon or Mid40 or Mid70
+  LiDAR: Horizon
 
 AlgorithmParam:
   # description: distance threshold for RANSAC (unit: meter)
@@ -21,7 +22,7 @@ AlgorithmParam:
   ransac_seed: 233
   # description: downsample method (uniform or mean)
   voxel_grid_method: "uniform"
-  # description: whether to save the pointcloud's chessboard for reuse (True or False)
+  # description: whether to regenerate the chessboard point clouds (True or False)
   reset_segmentation: True
   boundary_threshold: 1.8
 

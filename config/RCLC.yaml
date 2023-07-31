@@ -1,0 +1,33 @@
+Dataset:
+  DataDir: "data/RCLC"
+
+ChessboardParam:
+  # description: number of corner along the left side of chessboard in pixel coordinate (not the number of grid)
+  CornerNumAlongLeftSide: 4
+  # description: number of corner along the bottom side of chessboard in pixel coordinate (not the number of grid)
+  CornerNumAlongBottomSide: 7
+  # description: grid size of chessboard in meter
+  GridSize: 0.10
+  # description: color of the grid in the bottom left of chessboard
+  CornerColor: "white"
+
+SensorParam:
+  # description: choose Horizon or Mid40 or Mid70
+  LiDAR: Mid40
+
+AlgorithmParam:
+  # description: distance threshold for RANSAC (unit: meter)
+  plane_fitting_threshold: 0.03
+  # description: RANSAC seed (None or int)
+  ransac_seed: 233
+  # description: downsample method (uniform or mean)
+  voxel_grid_method: "uniform"
+  # description: whether to regenerate the chessboard point clouds (True or False)
+  reset_segmentation: True
+  boundary_threshold: 1.8
+
+OtherParam:
+  # description: True or False
+  use_hash_map_reproject: False
+  # description: True or False
+  use_plane_refine: True

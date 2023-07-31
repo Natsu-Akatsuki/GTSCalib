@@ -110,7 +110,7 @@ def find_intensity_threshold(intensity, methods, debug=False):
         if method == "KDE":
             pdf = stats.kde.gaussian_kde(intensity_uint8)
             x = np.arange(0, 256, 1)
-            peak_x, _ = signal.find_peaks(pdf(x), distance=20)
+            peak_x, _ = signal.find_peaks(pdf(x), distance=30)
             sorted_peak_x = peak_x[np.argsort(pdf(peak_x))][::-1]
             topk_peak_x = sorted_peak_x[:2]
             intensity_threshold = topk_peak_x.mean()

@@ -7,4 +7,4 @@ data
 out
 gen
 
-*.png
+#*.png
