@@ -2,5 +2,5 @@
 - [Introduction](Introduction.md)
 - [Getting Started](Getting%20Started)
 - [Supplementary Material](Supplementary%20Material.md)
-- [Awesome Calibration](Awesome%20Calibration.md)
+- [Awesome Extrinsic Calibration](Awesome%20Extrinsic%20Calibration%20for%20LiDAR%20and%20Camera.md)
 - [Datasets](Datasets.md)

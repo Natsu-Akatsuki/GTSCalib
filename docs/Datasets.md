@@ -1,8 +1,7 @@
 <style>
-.markdown-section table {
+table {
     width: 70%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
 }
 </style>
 

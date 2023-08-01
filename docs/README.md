@@ -5,7 +5,7 @@
 - [Home](/ "Home")
 - [Introduction](Introduction.md)
 - [Getting Started](Getting%20Started)
-- [Awesome Calibration](Awesome%20Calibration.md)
+- [Awesome Extrinsic Calibration for LiDAR and Camera](Awesome%20Extrinsic%20Calibration%20for%20LiDAR%20and%20Camera.md)
 - [Datasets](Datasets.md)
 
 ## Roadmap
