@@ -14,8 +14,13 @@ This work is an extension of [ACSC](https://github.com/HViktorTsoi/ACSC) and [IL
 
 ## Novel features
 
-- **User-friendly**: No need to adjust parameters, such as dynamically adjusting the passthrough filter to roughly select the position of the calibration board; the calibration board can be handheld or placed on a stool; the bottom edge of the calibration board is not required to be parallel to the ground; and when certain conditions are met, it can be directly placed on the ground.
-- **High precision**: Five appropriate positions can obtain high-precision and consistent extrinsic parameters.
+- **User-friendly**:
+  - Free of parameter tuning: Our proposed method eliminates the need for adjusting parameters, such as dynamically fine-tuning the passthrough filter to approximate the position of the calibration board. It operates effectively without the need for such manual adjustments, making the calibration process more convenient and user-friendly.
+  - Environment agnostic: Our proposed method does not require a well-prepared environment. It can effectively function in spaces with clustered backgrounds. The calibration board can be handheld or placed on a stool, and there is no strict requirement for the bottom edge of the calibration board to be parallel to the ground. Under certain conditions, the calibration board can even be directly placed on the ground for calibration.
+
+![img](_assets/segmentation.png ':size=800 Fig.3 Performance of the target segmentation. Scene1, Scene 3 and Scene 4: the chessboard is held by a holder; Scene2: the chessboard is handheld; Scene5: the chessboard is placed on a chair; Scene6: the chessboard is placed on the ground')
+
+- **High precision**: Five appropriate positions can obtain high-precision extrinsic parameters.
 - **More general API**: The `Open3D` library is used for point cloud processing, which is easier to install compared to the `python-pcl` library used in `ACSC`.
 - **More user-friendly interaction interface**: The `PyQt` and `Rviz` are combined for interaction, providing a more user-friendly data acquisition interface.
 
@@ -28,7 +33,7 @@ For better demonstrate the benefits our calibration tools, we describe the benef
         Why use target-based segmentation instead of target-less methods?
     </summary>
 
-The target-based methods is more accurate than target-less methods.
+The target-based methods is more accurate than targetless methods.
 
 </details>
 
