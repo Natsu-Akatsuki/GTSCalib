@@ -27,7 +27,7 @@
 ```bash
 
 # >>> Install Python dependency from pypi >>>
-$ git clone https://github.com/Natsu-Akatsuki/ARTSCalib
+$ git clone https://github.com/Natsu-Akatsuki/ARTSCalib --depth=1
 $ pip3 install -r requirements.txt
 
 # (Optional) To use the data collection UI, additional installation is required:

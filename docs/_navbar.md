@@ -1,1 +1,1 @@
-- :house: [Home](HOME.md)
+- :house: [Home](README.md)
