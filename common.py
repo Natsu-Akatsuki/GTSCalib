@@ -103,7 +103,7 @@ def find_intensity_threshold(intensity, methods, debug=False):
     :return:
     """
 
-    # 用KDE拟合居中的intensity的分布
+    # 用 KDE 拟合居中的 intensity 的分布
     intensity_uint8 = intensity.astype(np.uint8)
 
     for method in methods:
@@ -166,10 +166,10 @@ def find_intensity_threshold(intensity, methods, debug=False):
         plt.show()
 
         # 强度概率密度函数
-        plt.plot(x, pdf(x))
-        plt.plot(topk_peak_x, pdf(topk_peak_x), 'o', markersize=8)
-        plt.ylim([0, 0.025])
-        plt.show()
+        # plt.plot(x, pdf(x))
+        # plt.plot(topk_peak_x, pdf(topk_peak_x), 'o', markersize=8)
+        # plt.ylim([0, 0.025])
+        # plt.show()
 
     return intensity_threshold
 
@@ -179,8 +179,8 @@ def pca(pointcloud, debug=False, is_bottom_side_long=True):
     将标定版点云从激光雷达系转换到标定版系下
     标定版系的定义：
     1）原点位置：为标定板点云的几何中心
-    2）坐标系方向：规定标定板的x轴平行于侧边，标定版的底边平行于y轴（根据底边是长边还是短边判断底边）
-    最大方差对应的奇异向量即y轴，次之为z轴，z轴为x轴和y轴的叉乘（满足右手坐标系）
+    2）坐标系方向：规定标定板的 x 轴平行于侧边，标定版的底边平行于 y 轴（根据底边是长边还是短边判断底边）
+    最大方差对应的奇异向量即 y 轴，次之为 z 轴，z 轴为 x 轴和 y 轴的叉乘（满足右手坐标系）
     @ref: https://github.com/mfxox/ILCC/blob/c3f38e3aaa07b0d3981b33be277cccd48a2fb595/ILCC/pcd_corners_est.py#L598
 
     :param debug: 可视化标定板点云和标定板坐标系
@@ -197,14 +197,14 @@ def pca(pointcloud, debug=False, is_bottom_side_long=True):
     pca.fit(pointcloud_in_lidar_frame)
     rmat_lidar_to_chessboard = np.zeros((3, 3), dtype=np.float32)
     if is_bottom_side_long:
-        # 令标定板底边为x轴，侧边为y轴（又知底边为长边->x轴对应方差最大）
+        # 令标定板底边为 x 轴，侧边为 y 轴（又知底边为长边->x 轴对应方差最大）
         rmat_lidar_to_chessboard[0], rmat_lidar_to_chessboard[1] = pca.components_[0], pca.components_[1]
     else:
-        # 令标定板底边为x轴，侧边为y轴（又知底边为短边->x轴对应方差次大）
+        # 令标定板底边为 x 轴，侧边为 y 轴（又知底边为短边->x 轴对应方差次大）
         rmat_lidar_to_chessboard[0], rmat_lidar_to_chessboard[1] = pca.components_[1], pca.components_[0]
 
     # 坐标系需满足右手系
-    # 标定板的y轴需要跟激光雷达系的z轴的夹角应该为锐角
+    # 标定板的 y 轴需要跟激光雷达系的 z 轴的夹角应该为锐角
     if np.dot(rmat_lidar_to_chessboard[1], np.array([0, 0, 1])) < 0:
         rmat_lidar_to_chessboard[1] = -rmat_lidar_to_chessboard[1]
 
@@ -335,12 +335,12 @@ def matching_loss(theta_t, pointcloud, intensity_pivot, grid_num_along_x, grid_n
 
     if 0:
         visualization.o3d_viewer_from_pointcloud(trans_pointcloud, is_normalized=False)
-        # 理论情况: 基于行列的奇偶性，相同时则为高反格子
+        # 理论情况：基于行列的奇偶性，相同时则为高反格子
         colors = np.zeros((pointcloud.shape[0], 3))
         colors[supposed_colors == True, :] = [1, 1, 1]
         colors[supposed_colors == False, :] = [0, 0, 0]
         visualization.o3d_viewer_from_pointcloud(trans_pointcloud, colors=colors)
-        # 实际情况：基于强度阈值，高反为1（白色），低反为0（黑色）
+        # 实际情况：基于强度阈值，高反为 1（白色），低反为 0（黑色）
         colors = np.zeros((pointcloud.shape[0], 3))
         colors[actual_colors == 0, :] = [0, 0, 0]
         colors[actual_colors == 1, :] = [1, 1, 1]
@@ -354,7 +354,6 @@ def matching_loss(theta_t, pointcloud, intensity_pivot, grid_num_along_x, grid_n
     point_color_unmatch = (actual_colors != supposed_colors)
     apply_cost_mask = point_color_unmatch | point_not_in_chessboard
 
-    color_mask = point_color_unmatch
     # the cost are calculated by the 1-norm distance between each point and its nearest grid
     # e.g. (100) -> (100, 1) -> (100, 7) -> (100,7) - (7) -> (100,7) - (100,7)
     point_x = (trans_pointcloud[:, 0]).reshape(-1, 1).repeat(len(bound_x_coord_list), axis=1)

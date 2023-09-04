@@ -73,7 +73,7 @@ class Experiment():
         img = cv2.undistort(src=img, cameraMatrix=self.intri_matrix, distCoeffs=self.distor)
 
         # project the pointcloud to img
-        pts_img, _ = self.lidar_to_img(pointcloud[:, :3])
+        pts_img, _, _ = calibration.lidar_to_pixel(pointcloud[:, :3], cal_info=self.cal_info)
 
         # round
         pts_img = np.floor(pts_img)
@@ -167,7 +167,7 @@ class Experiment():
             l2_error = np.linalg.norm(projected_corners - corners_in_image, axis=1, ord=2)
 
             # 标定板距离相机原点的距离
-            pts_camera = self.lidar_to_camera_points(corners_in_lidar[:, :3])
+            pts_camera, pts_camera_depth, _ = calibration.lidar_to_pixel(corners_in_lidar[:, :3], cal_info=self.cal_info)
 
             distance_chessboard_to_camera = np.mean(
                 np.linalg.norm(pts_camera[:, :3], axis=1, ord=2).astype(np.float32))
@@ -185,7 +185,7 @@ class Experiment():
             chessboard_to_lidar_dist_list.append(distance_chessboard_to_lidar)
             chessboard_x_in_camera_list.append(np.mean(pts_camera[:, 0]))
             chessboard_y_in_camera_list.append(np.mean(pts_camera[:, 1]))
-            chessboard_z_in_camera_list.append(np.mean(pts_camera[:, 2]))
+            chessboard_z_in_camera_list.append(np.mean(pts_camera_depth))
 
         if do_sort:
             # 根据标定板离相机系原点的距离进行排序
