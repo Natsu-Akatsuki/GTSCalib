@@ -29,7 +29,7 @@
         loadSidebar: true,
         subMaxLevel: 2,
         coverpage: false,
-        loadNavbar: true,
+        loadNavbar: false,
         tabs: {
             persist: true,      // default
             sync: true,      // default
@@ -79,7 +79,7 @@
 <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
 
 <!-- body -->
-<script src="https://unpkg.com/docsify-toc@1.0.0/dist/toc.js"></script>
+<!--<script src="https://unpkg.com/docsify-toc@1.0.0/dist/toc.js"></script>-->
 
 <!-- 添加贡献者信息 -->
 <script src="//cdn.jsdelivr.net/npm/docsify-contributors@latest/dist/index.min.js"></script>
@@ -87,6 +87,13 @@
 <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
 <!-- 追加标题 -->
 <script src="https://unpkg.com/@h-hg/docsify-image-caption/dist/docsify-image-caption.min.js"></script>
+
+<!-- 配置 LaTex -->
+<!-- LaTeX display engine -->
+<script src="//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!--  docsify-latex plugin -->
+<script src="//cdn.jsdelivr.net/npm/docsify-latex@0"></script>
+
 </body>
 
 </html>
